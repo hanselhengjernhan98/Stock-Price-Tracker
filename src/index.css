@@ -24,3 +24,8 @@ body {
 .className {
   background-color: green;
 }
+
+.main {
+  margin: auto;
+  text-align: center;
+}
