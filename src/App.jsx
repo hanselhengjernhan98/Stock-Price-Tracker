@@ -4,6 +4,14 @@ import SearchBox from "./Components/SearchBox";
 import stockImage from "./Images/stockImage.png";
 import "./index.css";
 import AddFavourites from "./Components/AddFavourites";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+} from "react-router-dom";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [stock, setStock] = useState({});
