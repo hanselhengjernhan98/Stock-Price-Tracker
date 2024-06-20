@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Instructions from "./Components/Instructions";
 import SearchBox from "./Components/SearchBox";
 import stockImage from "./Images/stockImage.png";
-import "./index.css"; // Import the CSS file
+import "./index.css";
 
 function App() {
   const [stock, setStock] = useState([]);
@@ -34,8 +34,28 @@ function App() {
     getData();
   }, [searchValue]);
 
+  const getData3 = async () => {
+    const resp3 = fetch(
+      "https://api.airtable.com/v0/app7WhNBUu42gP1lf/Table%201",
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: "Bearer" + +import.meta.env.VITE_APIKEY,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: "records[]=recpIKVnGVKjy3KF2&records[]=recy1jzxYbpNDdDDB",
+      }
+    );
+  };
+  //change database, change codes
+
+  //how conditionals work
+  //de-structuring
+  //if they save, put it into the airtable
+
   const getData2 = async () => {
     const resp = fetch(
+      //doesn't 'fetch' but POST data onto airtable
       "https://api.airtable.com/v0/app7WhNBUu42gP1lf/Table%201",
       {
         method: "POST",
@@ -48,14 +68,7 @@ function App() {
           records: [
             {
               fields: {
-                Name: "Apple",
-                Email: "apple@apple.com",
-              },
-            },
-            {
-              fields: {
-                Name: "banana",
-                Email: "banana@banana.com",
+                stockName: { searchValue }, //change to the state in the input
               },
             },
           ],
